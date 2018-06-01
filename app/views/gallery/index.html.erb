@@ -1,0 +1,46 @@
+
+<div class="container">
+	<div class="row">
+		<%= render 'why_arunas/message' %>
+	</div>
+	<div class="row text-center">
+		<h1>List of editable fields avialable at home page:</h1>
+	</div>
+	<div class="row">
+		<h3>Headings</h3>
+		<div class="col-md-12">
+			<% @heading.each do |head| %>
+				<%= form_for head, url: {action: "update"}, html: {class: "nifty_form"} do |f| %>
+					<div class="col-md-12">
+						<div class="input-group">
+						   <!-- <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span> -->
+						   <!-- <input id="name" type="text" class="form-control" name="name" placeholder="Email"> -->
+						   <%= f.text_area :description,cols: 130, rows: 5 , class:'form-control input-lg',required:true  %>
+						   <%= f.text_area :id, value: head.id , class:'form-control hidden'  %>
+						 </div>
+					</div>
+					<div class="col-md-12 text-center" style="padding: 10px;">
+						<%= f.submit "update",class:'btn btn-warning btn-lg'  %>
+					</div>
+				<% end %>
+			<% end %>
+		</div>
+	</div>
+
+	<div class="row">
+		<% @sub_categories.each_with_index do |cat,i| %>
+			<%= form_for cat, url: {action: "edit"}, html: {class: "nifty_form"} do |f| %>
+				<h3>Sub Categories:<%= i+1 %></h3>
+				<div class="col-md-12">
+					<div class="input-group">
+					  <button class="btn btn-primary"><%= cat.name %></button>
+					  <%= f.text_area :id, value: cat.id , class:'form-control hidden'  %>
+					 </div>
+				</div>
+				<div class="col-md-12 text-center" style="padding: 10px;">
+					<%= f.submit "edit",class:'btn btn-warning btn-lg'  %>
+				</div>
+			<% end %>
+		<% end %>
+	</div>
+</div>

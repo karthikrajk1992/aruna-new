@@ -1,0 +1,15 @@
+<h1>Hi am from homes</h1>
+
+
+
+<div class="container">
+	<% @main_cat.each do |main_cate|%>
+	<div class="row">
+		<div class="col-md-12">
+			<!-- <button class="btn btn-danger btn-large"></button> -->
+			<%= link_to main_cate.name, main_cate.url_path, :class => "btn btn-warning btn-large"%>
+		</div>
+	</div>
+	<% end %>
+</div>
+

@@ -1,0 +1,18 @@
+<div class="container">
+	<div class="row text-center">
+		<h1>List of editable fields avialable at products page:</h1>
+	</div>
+		<div class="row">
+		<% @sub_categories.each_with_index do |cat,i| %>
+			<%= form_for cat, url: {action: "edit"}, html: {class: "nifty_form"} do |f| %>
+				<h3>Sub Categories:<%= i+1 %></h3>
+				<div class="col-md-12">
+					<div class="input-group">
+					  <button class="btn btn-warning btn-lg"><%= cat.name %></button>
+					  <%= f.text_area :id, value: cat.id , class:'form-control hidden'  %>
+					 </div>
+				</div>
+			<% end %>
+		<% end %>
+	</div>
+</div>

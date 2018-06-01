@@ -1,0 +1,42 @@
+
+<div class="container-fluid">
+	<div class="row">
+		<%= render 'homes/message' %>
+	</div>
+	<div class="row text-center">
+		<h1>List of editable fields avialable at home page:</h1>
+	</div>
+	<div class="row">
+		<%= form_for @paragraph, url: {action: "update"}, html: {class: "nifty_form"} do |f| %>
+			<h3>Paragraph</h3>
+			<div class="col-md-12">
+				<div class="input-group">
+				   <!-- <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span> -->
+				   <!-- <input id="name" type="text" class="form-control" name="name" placeholder="Email"> -->
+				   <%= f.text_area :description,cols: 130, rows: 5 , class:'form-control input-lg',required:true  %>
+				 </div>
+			</div>
+			<div class="col-md-12 text-center" style="padding: 10px;">
+				<%= f.submit "update",class:'btn btn-warning btn-lg'  %>
+			</div>
+		<% end %>
+	</div>
+	<div class="row">
+		<h3>Headings</h3>
+		<div class="col-md-12">
+			<%= form_for @heading, url: {action: "update"}, html: {class: "nifty_form"} do |f| %>
+			<div class="col-md-12">
+				<div class="input-group">
+				   <!-- <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span> -->
+				   <!-- <input id="name" type="text" class="form-control" name="name" placeholder="Email"> -->
+				   <%= f.text_area :description,cols: 130, rows: 5 , class:'form-control input-lg',required:true  %>
+				 </div>
+			</div>
+			<div class="col-md-12 text-center" style="padding: 10px;">
+				<%= f.submit "update",class:'btn btn-warning btn-lg'  %>
+			</div>
+		<% end %>
+		</div>
+	</div>
+</div>
+
